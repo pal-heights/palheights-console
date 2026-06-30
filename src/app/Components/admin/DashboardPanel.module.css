@@ -1,0 +1,377 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.dashboard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid #f1f5f9;
+  background: linear-gradient(135deg, rgba(180, 0, 104, 0.05) 0%, rgba(180, 0, 104, 0.02) 100%);
+}
+
+.welcome {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  background: linear-gradient(135deg, rgba(180, 0, 104, 1) 0%, rgba(160, 0, 94, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: normal;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: rgba(180, 0, 104, 0.1);
+  color: rgba(180, 0, 104, 1);
+}
+
+.content {
+  padding: 24px;
+}
+
+.profileSection {
+  margin-bottom: 32px;
+}
+
+.profileCard {
+  background: linear-gradient(135deg, rgba(180, 0, 104, 0.05) 0%, rgba(180, 0, 104, 0.02) 100%);
+  border: 1px solid rgba(180, 0, 104, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(180, 0, 104, 1) 0%, rgba(160, 0, 94, 1) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profileIcon:hover {
+  transform: scale(1.05);
+}
+
+.profileIconOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.profileIcon:hover .profileIconOverlay {
+  opacity: 1;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+}
+
+.profileEmail {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.editBtn {
+  padding: 10px 20px;
+  background: white;
+  color: rgba(180, 0, 104, 1);
+  border: 2px solid rgba(180, 0, 104, 1);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.editBtn:hover {
+  background: rgba(180, 0, 104, 0.05);
+  transform: translateY(-1px);
+}
+
+.workSection {
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 20px 0;
+}
+
+.tasksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.taskCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.taskTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e293b;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.taskStatus {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid currentColor;
+}
+
+.taskUpdated {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.logoutBtn {
+  padding: 10px 20px;
+  background: white;
+  color: rgba(180, 0, 104, 1);
+  border: 2px solid rgba(180, 0, 104, 1);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+  background: rgba(180, 0, 104, 0.2);
+  border-color: rgba(180, 0, 104, 0.5);
+  transform: translateY(-1px);
+}
+
+.statusSection {
+  margin-bottom: 32px;
+}
+
+.statusTabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.statusTab {
+  padding: 8px 28px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+  box-shadow: none;
+}
+
+.statusTab.active {
+  border-color: #10b981;
+  color: #10b981;
+  background: #f0fdf4;
+}
+
+.statusTab.pending {
+  border-color: #f59e0b;
+  color: #f59e0b;
+  background: #fff7ed;
+}
+
+.statusTab.inProgress {
+  border-color: #2563eb;
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.statusTab.completed {
+  border-color: #10b981;
+  color: #10b981;
+  background: #f0fdf4;
+}
+
+.statusTab:not(.active):not(.pending):not(.inProgress):not(.completed) {
+  border-color: #7e7e7e48;
+  color: #7e7e7ecb;
+  background: #fcf8fa;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 10px;
+  }
+  
+  .dashboard {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .header {
+    padding: 20px;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .welcome {
+    font-size: 1.5rem;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .profileCard {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .profileHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .tasksGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .taskHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .taskStatus {
+    align-self: flex-start;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .profileIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .profileName {
+    font-size: 1.125rem;
+  }
+  
+  .taskCard {
+    padding: 16px;
+  }
+}

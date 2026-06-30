@@ -1,0 +1,61 @@
+/* CookiePopup.module.css */
+.popup {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  background: #b1894a;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  padding: 24px 32px 20px 24px;
+  max-width: 700px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  animation: fadeIn 0.5s;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.text {
+  flex: 1;
+}
+
+.okButton {
+  margin-left: 8px;
+  background: #fff;
+  color: #b1894a;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .popup {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    max-width: 98vw;
+    padding: 16px 10px 14px 10px;
+    font-size: 13px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .okButton {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+    padding: 10px 0;
+  }
+}

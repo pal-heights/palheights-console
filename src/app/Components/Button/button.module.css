@@ -1,0 +1,250 @@
+.arrow {
+  margin: 0 0 0 0.5rem;
+  transform: translateX(0rem);
+  transition: 0.15s transform;
+}
+
+.blackButtonWithBackground {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-style: normal;
+  line-break: 1.5rem;
+  background-color: transparent;
+  border-radius: 10rem;
+  border: transparent;
+  cursor: pointer;
+  color: #fff;
+  background-color: black;
+}
+
+.blackButtonWithBackground:hover .arrow {
+  transform: translateX(0.1875rem);
+  transition: 0.15s transform;
+}
+
+.blackButtonNoBackground {
+  background-color: transparent;
+  color: #1a202c;
+  border: none;
+  padding: 0.8rem 1.5rem;
+}
+
+.blackButtonNoBackground:hover .arrow {
+  transform: translateX(0.1875rem);
+  transition: 0.15s transform;
+}
+
+.whiteButtonWithBackground {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-style: normal;
+  line-break: 1.5rem;
+  background-color: transparent;
+  border-radius: 10rem;
+  border: transparent;
+  cursor: pointer;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.25);
+  display: flex;
+}
+
+.whiteButtonWithBackground:hover .arrow {
+  transform: translateX(0.1875rem);
+  transition: 0.15s transform;
+}
+
+.whiteButtonNoBackground {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-style: normal;
+  line-break: 1.5rem;
+  background-color: transparent;
+  border-radius: 10rem;
+  border: transparent;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #24242463;
+}
+
+.whiteButtonNoBackground:hover .arrow {
+  transform: translateX(0.1875rem);
+  transition: 0.15s transform;
+}
+
+.whatWeDoButton {
+  background: linear-gradient(
+    135deg,
+    rgba(107, 0, 62, 1) 0%,
+    rgba(180, 0, 104, 1) 100%
+  );
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(107, 0, 62, 0.3);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.whatWeDoButton::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -120%;
+  width: 100%;
+  height: calc(100% + 40px);
+  background: white;
+  transition: all 0.4s ease;
+  z-index: -1;
+  transform: rotate(5deg);
+  transform-origin: left center;
+}
+
+.whatWeDoButton:hover {
+  color: rgba(107, 0, 62, 1);
+  box-shadow: 0 6px 20px rgba(107, 0, 62, 0.4);
+}
+
+.whatWeDoButton:hover::before {
+  left: 0;
+}
+
+.whatWeDoButton svg {
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+  margin-left: 0.5rem;
+  transform: translateX(0);
+}
+
+.whatWeDoButton:hover svg {
+  transform: translateX(0.5rem);
+}
+
+.smallBlackButtonWithBackground {
+  padding: 0.3rem 0.45rem;
+  font-size: 0.525rem;
+  font-weight: 600;
+  line-height: 0.9rem;
+  background-color: black;
+  border-radius: 10rem;
+  border: transparent;
+  cursor: pointer;
+  color: #fff;
+}
+
+.smallBlackButtonWithBackground:hover .arrow {
+  transform: translateX(0.1125rem);
+  transition: 0.15s transform;
+}
+
+.smallWhatWeDoButton {
+ background: linear-gradient(90deg, #790046 0%, #E50078 100%);
+ color: white;
+  padding: 0.702rem 1.755rem;
+  padding-top: .8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.774rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2.808px 10.53px rgba(107, 0, 62, 0.3);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.smallWhatWeDoButton::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: -120%;
+  width: 100%;
+  height: calc(100% + 28.08px);
+  background: white;
+  transition: all 0.4s ease;
+  z-index: -1;
+  transform: rotate(5deg);
+  transform-origin: left center;
+}
+
+.smallWhatWeDoButton:hover {
+  color: rgba(107, 0, 62, 1);
+  box-shadow: 0 4.212px 14.04px rgba(107, 0, 62, 0.4);
+}
+
+.smallWhatWeDoButton:hover::before {
+  left: 0;
+}
+
+.smallWhatWeDoButton svg {
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+  margin-left: 0.351rem;
+  transform: translateX(0);
+}
+
+.smallWhatWeDoButton:hover svg {
+  transform: translateX(0.351rem);
+}
+
+/* Sign in button css */
+.secondary {
+  background-color: rgba(255, 255, 255, 0.15); /* Slightly more glassy */
+  backdrop-filter: blur(6px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 47.5px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  width: fit-content;
+  position: relative;
+}
+
+.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Add arrow via CSS */
+.secondary::after {
+  content: '→'; /* You can change this to any arrow character or Unicode */
+  font-size: 18px;
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.secondary:hover::after {
+  transform: translateX(3px);
+}
+
+.whiteButtonNoBackground {
+  display: flex;
+  margin-left: .5rem;
+}
