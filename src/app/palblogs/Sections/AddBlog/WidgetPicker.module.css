@@ -1,0 +1,22 @@
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.item {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+  color: var(--theme-color);
+  border-color: var(--theme-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.item:hover {
+  border-color: var(--default-active);
+  color: var(--default-active);
+}

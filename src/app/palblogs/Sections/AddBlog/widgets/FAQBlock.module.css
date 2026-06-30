@@ -1,0 +1,116 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #fff;
+  color: var(--default-text-dark);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.title:hover,
+.title:focus {
+  border: 1px solid var(--default-hover);
+}
+.description {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  resize: vertical;
+  background-color: #fff;
+  color: var(--default-text-dark);
+  outline: none;
+transition: border-color 0.3s ease-in-out;
+}
+
+.description:hover,
+.description:focus {
+  border: 1px solid var(--default-hover);
+}
+
+
+.item {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: #fff;
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.itemLabel {
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+}
+
+.question,
+.answer {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #fff;
+  color: var(--default-text-dark);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.question:hover,
+.answer:hover,
+.question:focus,
+.answer:focus {
+  border: 1px solid var(--default-hover);
+}
+
+.answer {
+  resize: vertical;
+}
+
+/* Remove FAQ button */
+.remove {
+  background: transparent;
+  border: none;
+  color: var(--icon-light);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.remove:hover {
+  color: var(--default-danger);
+}
+
+/* Add FAQ button */
+.add {
+  background-color: var(--button-bg);
+  border: none;
+  color: var(--button-text);
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease-in-out;
+}
+.add:hover {
+  background-color: var(--button-hover-bg);
+}

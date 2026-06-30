@@ -1,0 +1,548 @@
+/* ---------- Layout ---------- */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1.25rem;
+  background: #f8fafc;
+}
+
+.state {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.stateError {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  color: var(--default-danger);
+}
+
+/* ---------- Header ---------- */
+.leadsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 24px 24px 24px 8px;
+  border-bottom: 1px solid var(--border-color);
+}
+.leadsHeader h2 {
+  margin: 0 0 4px 0;
+  color: var(--default-text-dark);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.leadsHeader p {
+  margin: 0;
+  color: var(--default-text);
+  font-size: 0.875rem;
+}
+
+/* ---------- Table ---------- */
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+}
+
+.table thead {
+  background: #f9fafb;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.75rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--default-text);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 0.75rem;
+  font-size: 13px;
+  color: var(--default-text);
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.row:hover {
+  background: #f9fafb;
+}
+
+/* ---------- Title + Slug ---------- */
+
+.titleCell {
+  max-width: 420px;
+}
+
+.title {
+  font-weight: 500;
+  color: var(--default-text);
+  line-height: 1.4;
+}
+
+.slug {
+  font-size: 12px;
+  color: var(--default-text);
+  opacity: 0.75;
+  margin-top: 2px;
+  word-break: break-all;
+}
+
+/* ---------- Links ---------- */
+
+.table a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.table a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Status ---------- */
+
+.statusPublished,
+.statusDraft {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* required for tooltip */
+  position: relative;
+  overflow: visible;
+}
+
+.statusPublished {
+  background: #dcfce7;
+  color: var(--default-success-text);
+}
+
+.statusDraft {
+  background: #fee2e2;
+  color: var(--default-warning);
+}
+
+.statusPublished:disabled,
+.statusDraft:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Status Tooltip ---------- */
+
+/* Tooltip bubble */
+.statusPublished::after,
+.statusDraft::after {
+  content: attr(data-tooltip);
+  position: absolute;
+
+  /* place above badge */
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 500;
+
+  /* new theme (light) */
+  color: var(--default-text);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  z-index: 50;
+}
+
+/* Tooltip arrow */
+.statusPublished::before,
+.statusDraft::before {
+  content: "";
+  position: absolute;
+
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-width: 6px;
+  border-style: solid;
+
+  /* arrow matches tooltip */
+  border-color: #ffffff transparent transparent transparent;
+
+  filter: drop-shadow(0 -1px 0 #e5e7eb);
+
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 49;
+}
+
+/* Show on hover */
+.statusPublished:hover::after,
+.statusPublished:hover::before,
+.statusDraft:hover::after,
+.statusDraft:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------- Actions ---------- */
+
+.editBtn,
+.deleteBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.editBtn {
+  color: var(--default-blue);
+  margin-right: 8px;
+}
+
+.editBtn:hover {
+  color: var(--default-blue-hover);
+}
+
+.deleteBtn {
+  color: var(--default-warning);
+}
+
+.deleteBtn:hover {
+  color: var(--default-warning-hover);
+}
+
+.actionWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Action Bar ---------- */
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.leftActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.selectedCount {
+  font-size: 12px;
+  color: var(--default-text);
+}
+.statusText {
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--default-text);
+}
+
+.actionRow select,
+.actionRow input,
+.actionRow button {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  color: var(--default-text);
+  outline: none;
+}
+
+.actionRow select {
+  cursor: pointer;
+}
+
+.actionRow select:focus,
+.actionRow input:focus,
+.actionRow button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.actionRow button {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.actionRow button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.search {
+  min-width: 200px;
+}
+
+.checkboxInput {
+  outline: none;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Modal ---------- */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modalTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--default-text);
+}
+
+.modalText {
+  font-size: 13px;
+  color: var(--default-text);
+  margin-bottom: 20px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancelBtn {
+  padding: 6px 12px;
+  color: var(--default-text);
+  background: #f3f4f6;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  outline: none;
+}
+
+.confirmDeleteBtn {
+  padding: 6px 12px;
+  background: var(--default-warning);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  outline: none;
+  transition: background 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.confirmDeleteBtn:hover {
+  background: var(--default-warning-hover);
+}
+
+/* ---------- Pagination ---------- */
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin: 16px auto 0;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  cursor: pointer;
+  color: var(--default-text);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 13px;
+  color: var(--default-text);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    padding: 0.6rem;
+    font-size: 12px;
+  }
+
+  .titleCell {
+    max-width: 260px;
+  }
+
+  .search {
+    min-width: 160px;
+  }
+}
+/* ---------- Revised Responsive Logic ---------- */
+
+/* 1. Reset Title Constraints */
+.titleCell {
+  max-width: none !important; /* Removed max-width as requested */
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 2rem !important;
+  }
+
+  /* 2. Action Bar: Scrollable, Single Line */
+  .actionRow {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    gap: 24px; /* Maintain healthy gaps between groups */
+    padding-bottom: 14px; /* Space for the scrollbar */
+  }
+
+  .leftActions,
+  .rightControls {
+    display: flex;
+    flex-shrink: 0; /* Prevents filters and search from collapsing */
+    align-items: center;
+    gap: 12px;
+  }
+
+  .search {
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+
+  /* 3. Table: Forced Scroll with Visible Bar */
+  .tableWrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .table {
+    min-width: 800px; /* Ensures the table has a minimum width to trigger scrolling */
+  }
+
+  /* 4. Scrollbar Styling (Visual Indicator) */
+  .actionRow::-webkit-scrollbar,
+  .tableWrap::-webkit-scrollbar {
+    height: 6px; /* Visible height */
+  }
+
+  .actionRow::-webkit-scrollbar-track,
+  .tableWrap::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+  }
+
+  .actionRow::-webkit-scrollbar-thumb,
+  .tableWrap::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+
+  .actionRow::-webkit-scrollbar-thumb:hover,
+  .tableWrap::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  /* 5. Pagination: Keep original structure (No changes per request) */
+  .pagination {
+    overflow: visible;
+  }
+}
+
+/* Specific Mobile Adjustment for Headers */
+@media (max-width: 768px) {
+  .pagination {
+    padding-bottom: 1rem;
+  }
+  .leadsHeader {
+    padding: 16px 8px;
+  }
+
+  .container {
+    padding: 0.75rem;
+  }
+}

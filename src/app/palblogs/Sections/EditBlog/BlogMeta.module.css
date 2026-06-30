@@ -1,0 +1,335 @@
+.meta {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .meta {
+    flex-direction: column;
+  }
+}
+
+.blogWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 60%;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  gap: 16px;
+}
+.metaWrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  width: 40%;
+  gap: 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--default-text-dark);
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.title:hover,
+.title:focus {
+  border-bottom: 1px solid var(--default-active);
+}
+
+.description {
+  resize: vertical;
+  padding: 10px;
+  color: var(--default-text-dark);
+  outline: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.seoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seoLabel {
+  color: var(--default-text-dark);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.seoInput,
+.seoTextarea {
+  width: 100%;
+  padding: 10px;
+  color: var(--default-text-dark);
+  outline: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.seoTextarea {
+  resize: vertical;
+}
+
+.counterRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--default-text);
+}
+
+.counterText {
+  color: var(--default-text-dark);
+}
+
+.errorText {
+  color: var(--default-danger);
+}
+
+.slug {
+  padding: 10px;
+  color: var(--default-text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.tagsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.description:hover,
+.description:focus,
+.tagsWrap:hover,
+.tagsWrap:focus-within {
+  border: 1px solid var(--default-active);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--default-text);
+  border: 1px solid transparent;
+}
+
+.removeTag {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--default-text);
+}
+
+.removeTag:hover {
+  color: var(--default-danger);
+}
+
+.tagInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  min-width: 120px;
+  font-size: 14px;
+  padding: 4px;
+  color: var(--default-text-dark);
+}
+
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categorySelect {
+  padding: 10px;
+  color: var(--default-text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+  background-color: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+.categorySelect:hover,
+.categorySelect:focus {
+  border: 1px solid var(--default-active);
+}
+
+.categorySelect:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.addCategoryWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .addCategoryWrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+  }
+  .categoryContainer,
+  .metaWrapper,
+  .blogWrapper,
+  .newCategoryInput {
+    width: 100%;
+  }
+}
+
+.newCategoryInput {
+  flex: 1;
+  padding: 10px;
+  color: var(--default-text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.newCategoryInput:hover,
+.newCategoryInput:focus {
+  border: 1px solid var(--default-active);
+}
+
+.addCategoryBtn {
+  padding: 10px 16px;
+  background-color: var(--default-active);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.addCategoryBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.addCategoryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.customDropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownButton {
+  padding: 10px;
+  color: var(--default-text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.dropdownButton:hover,
+.dropdownButton:focus {
+  border: 1px solid var(--default-active);
+}
+
+.dropdownButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.dropdownList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--background, #fff);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.dropdownItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--default-text-dark);
+}
+
+.dropdownItem:hover {
+  background-color: var(--border-color);
+}
+
+.dropdownItemText {
+  flex: 1;
+}
+
+.deleteCategoryBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--default-danger);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.deleteCategoryBtn:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+}

@@ -1,0 +1,45 @@
+.editor {
+  margin-top: 40px;
+}
+
+.empty {
+  height: 180px;
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--default-text);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.empty:hover {
+  border-color: var(--default-hover);
+}
+
+.empty button,
+.addMore button {
+  background-color: var(--button-bg);
+  border: none;
+  color: var(--button-text);
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.empty button {
+  align-self: center;
+  margin-top: 5px;
+}
+
+.addMore button:hover,
+.empty button:hover {
+  background-color: var(--button-hover-bg);
+}
+.addMore {
+  margin-top: 16px;
+}

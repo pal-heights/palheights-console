@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Select */
+.select {
+  width: 160px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+  color: var(--default-text);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Inputs */
+.item {
+  padding: 8px 12px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: var(--default-text-dark);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.select:hover,
+.item:hover,
+.select:focus,
+.item:focus {
+  border: 1px solid var(--default-hover);
+}
+
+.item::placeholder {
+  color: var(--default-text);
+}
+
+/* Add button */
+.add {
+  background-color: var(--button-bg);
+  border: none;
+  color: var(--button-text);
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Remove button */
+.remove {
+  background: transparent;
+  border: none;
+  color: var(--icon-light);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.remove:hover {
+  color: var(--default-danger);
+}
+

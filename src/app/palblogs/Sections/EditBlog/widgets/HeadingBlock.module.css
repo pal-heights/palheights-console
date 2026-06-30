@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.select,
+.input {
+  padding: 8px 12px;
+  color:var(--default-text);
+  outline: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.select:hover,
+.input:hover,
+.select:focus,
+.input:focus {
+  border: 1px solid var(--default-hover);
+}
+
+
+.input {
+  width: 95%;
+  color: var(--default-text-dark);
+}
