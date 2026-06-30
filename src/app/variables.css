@@ -1,0 +1,26 @@
+:root {
+    --theme-color: #b49355;
+    --default-text: #64748b;
+    --default-text-dark: #1e293b;
+    --theme-text: #b49355;
+    --theme-light-text: #cf962c;
+    --default-hover: #b49355;
+    --default-hover-bg: #f4efe4;
+    --default-active: #cf962c;
+    --default-danger: #d32f2f;
+    --default-danger-hover-bg: #d32f2f10;
+    --default-warning: #ef4444;
+    --default-warning-hover: #d32f2f;
+    --default-success: #4ade80;
+    --default-success-text: #166534d6;
+    --default-blue: #3b82f6;
+    --default-blue-hover: #1d4ed8;
+    --default-purple: #6f42c1;
+    --default-yellow: #f59e0b;
+    --border-color: #e2e8f0;
+    --button-text: #fff;
+    --button-bg: var(--theme-color);
+    --button-hover-bg: #aa8644;
+    --default-icon: #64748b;
+    --icon-light: #ccc;
+}
