@@ -250,7 +250,18 @@
 }
 
 .deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   color: var(--default-warning);
+}
+
+.trashedActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 .deleteBtn:hover {
