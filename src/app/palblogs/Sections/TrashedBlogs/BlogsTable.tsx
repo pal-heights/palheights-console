@@ -7,6 +7,7 @@ interface BlogsTableProps {
   blogs: BlogAdminItem[];
   selectedIds: string[];
   onRestore: (id: string) => void; // renamed from onDelete
+  onPermaDelete: (id: string) => void;
   onSelect: (id: string) => void;
   onSelectAll: () => void;
 }
@@ -18,6 +19,7 @@ export default function BlogsTable({
   onSelect,
   onSelectAll,
   onRestore, // renamed prop
+  onPermaDelete,
 }: BlogsTableProps) {
   const allSelected = blogs.length > 0 && selectedIds.length === blogs.length;
 
@@ -51,6 +53,7 @@ export default function BlogsTable({
               isSelected={selectedIds.includes(blog._id)}
               onSelect={onSelect}
               onRestore={onRestore} // renamed prop
+              onPermaDelete={onPermaDelete}
               isAdmin={isAdmin}
             />
           ))}

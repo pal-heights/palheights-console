@@ -4,7 +4,8 @@ import styles from "./TrashedBlogs.module.css";
 
 interface ActionRowProps {
   selectedCount: number;
-  onApplyBulk: () => void;
+  onRestoreSelected: () => void;
+  onPermaDeleteSelected: () => void;
 
   search: string;
   onSearchChange: (v: string) => void;
@@ -15,20 +16,34 @@ interface ActionRowProps {
 
 export default function ActionRow({
   selectedCount,
-  onApplyBulk,
+  onRestoreSelected,
+  onPermaDeleteSelected,
   search,
   onSearchChange,
   statusFilter,
   onStatusFilterChange,
 }: ActionRowProps) {
-  const disabled = selectedCount === 0;
+  const disabled = selectedCount <= 1;
 
   return (
     <div className={styles.actionRow}>
       {/* LEFT — Restore Selected */}
       <div className={styles.leftActions}>
-        <button type="button" onClick={onApplyBulk} disabled={disabled}>
+        <button
+          type="button"
+          onClick={onRestoreSelected}
+          disabled={disabled}
+          className={styles.restoreBtn}
+        >
           Restore Selected
+        </button>
+        <button
+          type="button"
+          onClick={onPermaDeleteSelected}
+          disabled={disabled}
+          className={styles.restoreBtn}
+        >
+          Delete Permanently
         </button>
 
         {selectedCount > 0 && (

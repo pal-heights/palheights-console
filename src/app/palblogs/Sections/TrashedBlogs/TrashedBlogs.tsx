@@ -57,7 +57,6 @@ export default function TrashedBlogs() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  const [bulkAction, setBulkAction] = useState("");
   const [showRestoreModal, setShowRestoreModal] = useState(false);
   const [page, setPage] = useState(1);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -129,16 +128,32 @@ export default function TrashedBlogs() {
     }
   };
 
-  /* ---------- Bulk restore ---------- */
-  const applyBulkAction = async () => {
-    if (!bulkAction || !selectedIds.length) return;
+  /* ---------- Bulk restore / delete ---------- */
+  const restoreSelected = () => {
+    if (!selectedIds.length) return;
+    setShowRestoreModal(true);
+  };
 
-    if (bulkAction === "restore") {
-      setShowRestoreModal(true);
-      return;
+  const permaDeleteSelected = async () => {
+    if (!selectedIds.length) return;
+    
+    if (confirm(`Are you sure you want to permanently delete ${selectedIds.length > 1 ? "these blogs" : "this blog"}? This action cannot be undone.`)) {
+      try {
+        await Promise.all(
+          selectedIds.map((id) =>
+            fetch(`/api/blogs/${id}/delete`, {
+              method: "DELETE",
+            }),
+          ),
+        );
+
+        setBlogs((prev) => prev.filter((b) => !selectedIds.includes(b._id)));
+        setSelectedIds([]);
+        toast.success("Blogs permanently deleted", successToast);
+      } catch {
+        toast.error("Failed to permanently delete blogs", errorToast);
+      }
     }
-
-    toast.error("Only restore is allowed in trashed blogs", errorToast);
   };
 
   const confirmRestore = async () => {
@@ -161,7 +176,6 @@ export default function TrashedBlogs() {
       );
 
       setSelectedIds([]);
-      setBulkAction("");
     } catch {
       toast.error("Failed to restore blogs", errorToast);
     } finally {
@@ -169,10 +183,24 @@ export default function TrashedBlogs() {
     }
   };
 
-  /* ---------- Row restore ---------- */
+  /* ---------- Row restore / delete ---------- */
   const handleRowRestore = (id: string) => {
     setSelectedIds([id]);
     setShowRestoreModal(true);
+  };
+
+  const handleRowPermaDelete = async (id: string) => {
+    if (confirm("Are you sure you want to permanently delete this blog? This action cannot be undone.")) {
+      try {
+        await fetch(`/api/blogs/${id}/delete`, {
+          method: "DELETE",
+        });
+        setBlogs((prev) => prev.filter((b) => b._id !== id));
+        toast.success("Blog permanently deleted", successToast);
+      } catch {
+        toast.error("Permanent delete failed", errorToast);
+      }
+    }
   };
 
   /* ---------- Loading/Error states ---------- */
@@ -216,7 +244,8 @@ export default function TrashedBlogs() {
       {/* Action Row */}
       <ActionRow
         selectedCount={selectedIds.length}
-        onApplyBulk={applyBulkAction}
+        onRestoreSelected={restoreSelected}
+        onPermaDeleteSelected={permaDeleteSelected}
         search={search}
         onSearchChange={setSearch}
         statusFilter={statusFilter}
@@ -234,6 +263,7 @@ export default function TrashedBlogs() {
             onSelect={toggleSelect}
             onSelectAll={toggleSelectAll}
             onRestore={handleRowRestore}
+            onPermaDelete={handleRowPermaDelete}
           />
 
           {totalPages > 1 && (
